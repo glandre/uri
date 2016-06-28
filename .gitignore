@@ -13,3 +13,9 @@ hs_err_pid*
 
 # Netbeans Project Files
 nbproject/
+
+# Test results
+build/test/results/
+
+# Build properties
+build/built-jar.properties
