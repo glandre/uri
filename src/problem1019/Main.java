@@ -16,7 +16,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-package problem1018;
+package problem1019;
 
 import java.util.Scanner;
 
@@ -24,53 +24,41 @@ import java.util.Scanner;
  * @author Geraldo B. Landre <geraldo.landre@gmail.com>
  */
 public class Main {
-    
+
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int value = scanner.nextInt();
-        int length = 7;
-        int[] bancknotes = {100, 50, 20, 10, 5, 2, 1};
         
-        DivisionArray division = new DivisionArray(bancknotes);
-        division.divide(value);
-        int[] wallet = division.getDivided();
+        Time time = new Time(scanner.nextInt());
+        System.out.printf("%s\n", time);
         
-        System.out.printf("%d\n", value);
-        for(int cell = 0; cell < length; cell++) {
-            System.out.printf("%d nota(s) de R$ %d,00\n", wallet[cell], bancknotes[cell]);
-        }
     }
 
 }
+
+class Time {
+
+    private static final int HOUR = 3600;
+    private static final int MINUTE = 60;
     
-class DivisionArray {
-    private final int[] dividers;
-    private int[] divided;
-
-    public DivisionArray(int[] dividers) {
-        if(dividers != null) {
-            this.dividers = dividers;
-            this.divided = new int[dividers.length];
-        }
-        else {
-            this.dividers = new int[0];
-        }
+    private final int hours;
+    private final int minutes;
+    private final int seconds;
+    
+    public Time(int seconds) {
+        
+        hours = seconds / HOUR;
+        int rest = seconds % HOUR;
+        minutes = rest / MINUTE;
+        this.seconds = rest % MINUTE;
+        
     }
-
-    public void divide(int value) {
-        int rest = value, i = 0;
-        while(rest > 0 && i < dividers.length) {
-            divided[i] = rest / dividers[i];
-            rest %= dividers[i];
-            i++;
-        }
+    
+    @Override
+    public String toString() {
+        return hours + ":" + minutes + ":" + seconds;
     }
-
-    public int[] getDivided() {
-        return this.divided;
-    }
-
+    
 }

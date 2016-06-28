@@ -16,15 +16,16 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-package problem1018;
+package common.samples;
 
+import common.DivisionArray;
 import java.util.Scanner;
 
 /**
  * @author Geraldo B. Landre <geraldo.landre@gmail.com>
  */
-public class Main {
-    
+public class Problem1018 {
+
     /**
      * @param args the command line arguments
      */
@@ -42,35 +43,6 @@ public class Main {
         for(int cell = 0; cell < length; cell++) {
             System.out.printf("%d nota(s) de R$ %d,00\n", wallet[cell], bancknotes[cell]);
         }
-    }
-
-}
-    
-class DivisionArray {
-    private final int[] dividers;
-    private int[] divided;
-
-    public DivisionArray(int[] dividers) {
-        if(dividers != null) {
-            this.dividers = dividers;
-            this.divided = new int[dividers.length];
-        }
-        else {
-            this.dividers = new int[0];
-        }
-    }
-
-    public void divide(int value) {
-        int rest = value, i = 0;
-        while(rest > 0 && i < dividers.length) {
-            divided[i] = rest / dividers[i];
-            rest %= dividers[i];
-            i++;
-        }
-    }
-
-    public int[] getDivided() {
-        return this.divided;
     }
 
 }

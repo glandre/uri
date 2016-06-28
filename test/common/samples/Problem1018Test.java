@@ -15,7 +15,7 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
-package problem1018;
+package common.samples;
 
 import base.TestBase;
 import org.junit.Test;
@@ -25,7 +25,7 @@ import static org.junit.Assert.*;
  *
  * @author Geraldo B. Landre <geraldo.landre@gmail.com>
  */
-public class MainTest extends TestBase {
+public class Problem1018Test extends TestBase {
 
     /**
      * Test of main method, of class Main.
@@ -34,7 +34,7 @@ public class MainTest extends TestBase {
     public void testMain() {
         setSystemIn("576\n");
         String[] args = null;
-        Main.main(args);
+        Problem1018.main(args);
         assertEquals("576\n" +
                     "5 nota(s) de R$ 100,00\n" +
                     "1 nota(s) de R$ 50,00\n" +
@@ -52,7 +52,7 @@ public class MainTest extends TestBase {
     public void testMain2() {
         setSystemIn("11257\n");
         String[] args = null;
-        Main.main(args);
+        Problem1018.main(args);
         assertEquals("11257\n" +
                     "112 nota(s) de R$ 100,00\n" +
                     "1 nota(s) de R$ 50,00\n" +
@@ -70,7 +70,7 @@ public class MainTest extends TestBase {
     public void testMain3() {
         setSystemIn("503\n");
         String[] args = null;
-        Main.main(args);
+        Problem1018.main(args);
         assertEquals("503\n" +
                     "5 nota(s) de R$ 100,00\n" +
                     "0 nota(s) de R$ 50,00\n" +
