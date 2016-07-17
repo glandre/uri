@@ -17,7 +17,11 @@
  */
 package problem1002;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 
 /**
  * Problem 1002.
@@ -28,13 +32,18 @@ public class Main {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        double R = scanner.nextDouble();
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        
+        double R = Double.parseDouble(br.readLine());
         double pi = 3.14159;
         double A = pi * R * R;
         
-        System.out.printf("A=%.4f\n", A);
+        bw.write(String.format("A=%.4f\n", A));
+        bw.flush();
+        bw.close();
+        br.close();
     }
     
 }

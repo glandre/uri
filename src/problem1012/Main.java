@@ -18,7 +18,11 @@
 
 package problem1012;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 
 /**
  * @author Geraldo B. Landre <geraldo.landre@gmail.com>
@@ -28,12 +32,15 @@ public class Main {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         
-        double a = scanner.nextDouble();
-        double b = scanner.nextDouble();
-        double c = scanner.nextDouble();
+        String line = br.readLine();
+        String[] input = line.split("\\s+");
+        double a = Double.parseDouble(input[0]);
+        double b = Double.parseDouble(input[1]);
+        double c = Double.parseDouble(input[2]);
         
         double pi = 3.14159;
         
@@ -43,8 +50,15 @@ public class Main {
         double squareArea = b * b;
         double rectangleArea = a * b;
         
-        System.out.printf("TRIANGULO: %.3f\nCIRCULO: %.3f\nTRAPEZIO: %.3f\nQUADRADO: %.3f\nRETANGULO: %.3f\n",
-                triangleArea, cirleRadius, trapeziumArea, squareArea, rectangleArea);
+        bw.write(String.format(
+                  "TRIANGULO: %.3f\n"
+                + "CIRCULO: %.3f\n"
+                + "TRAPEZIO: %.3f\n"
+                + "QUADRADO: %.3f\n"
+                + "RETANGULO: %.3f\n",
+                triangleArea, cirleRadius, trapeziumArea, squareArea, rectangleArea));
+        bw.close();
+        br.close();
     }
 
 }

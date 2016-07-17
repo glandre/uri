@@ -18,6 +18,9 @@
 package problem1003;
 
 import base.TestBase;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -32,9 +35,13 @@ public class MainTest extends TestBase {
      */
     @Test
     public void testMain_sample1() {
-        setSystemIn("30\n10");
-        Main.main(null);
-        assertEquals("SOMA = 40\n", outContent.toString());
+        try {
+            setSystemIn("30\n10");
+            Main.main(null);
+            assertEquals("SOMA = 40\n", outContent.toString());
+        } catch (IOException ex) {
+            fail(ex.getMessage());
+        }
     }
 
     /**
@@ -42,9 +49,13 @@ public class MainTest extends TestBase {
      */
     @Test
     public void testMain_sample2() {
-        setSystemIn("-30\n10");
-        Main.main(null);
-        assertEquals("SOMA = -20\n", outContent.toString());
+        try {
+            setSystemIn("-30\n10");
+            Main.main(null);
+            assertEquals("SOMA = -20\n", outContent.toString());
+        } catch (IOException ex) {
+            fail(ex.getMessage());
+        }
     }
 
     /**
@@ -52,9 +63,13 @@ public class MainTest extends TestBase {
      */
     @Test
     public void testMain_sample3() {
-        setSystemIn("0\n0");
-        Main.main(null);
-        assertEquals("SOMA = 0\n", outContent.toString());
+        try {
+            setSystemIn("0\n0");
+            Main.main(null);
+            assertEquals("SOMA = 0\n", outContent.toString());
+        } catch (IOException ex) {
+            fail(ex.getMessage());
+        }
     }
     
 }

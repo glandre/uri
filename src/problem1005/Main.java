@@ -18,7 +18,11 @@
 
 package problem1005;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 
 /**
  * Problem 1005.
@@ -29,15 +33,19 @@ public class Main {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         
-        float A = scanner.nextFloat();
-        float B = scanner.nextFloat();
+        float A = Float.parseFloat(br.readLine());
+        float B = Float.parseFloat(br.readLine());
         
         float average = (A * 0.35f + B * 0.75f) * 10/11;
         
-        System.out.printf("MEDIA = %.5f\n", average);
+        bw.write(String.format("MEDIA = %.5f\n", average));
+        bw.flush();
+        bw.close();
+        br.close();
     }
 
 }

@@ -19,3 +19,4 @@ build/test/results/
 
 # Build properties
 build/built-jar.properties
+/dist/

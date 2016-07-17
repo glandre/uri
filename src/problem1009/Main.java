@@ -18,6 +18,11 @@
 
 package problem1009;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.Scanner;
 
 /**
@@ -28,16 +33,19 @@ public class Main {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         
-        String name = scanner.nextLine();
-        double fixedSalary = scanner.nextDouble();
-        double totalInSales = scanner.nextDouble();
+        String name = br.readLine();
+        double fixedSalary = Double.parseDouble(br.readLine());
+        double totalInSales = Double.parseDouble(br.readLine());
         
         double totalSalary = fixedSalary + totalInSales * 0.150;
         
-        System.out.printf("TOTAL = R$ %.2f\n", totalSalary);
+        bw.write(String.format("TOTAL = R$ %.2f\n", totalSalary));
+        bw.close();
+        br.close();
     }
 
 }

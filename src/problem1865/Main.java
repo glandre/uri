@@ -18,7 +18,11 @@
 
 package problem1865;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 
 /**
  * @author Geraldo B. Landre <geraldo.landre@gmail.com>
@@ -28,17 +32,23 @@ public class Main {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         
-        int c = scanner.nextInt();
+        int c = Integer.parseInt(br.readLine());
         for(int i = 0; i < c; i++) {
-            String character = scanner.next();
-            int force = scanner.nextInt();
+            String line = br.readLine();
+            String[] input = line.split("\\s+");
+            String character = input[0];
+            int force = Integer.parseInt(input[1]);
             
             String output = (force > 0 && character.equals("Thor")) ? "Y" : "N";
-            System.out.printf("%s\n", output);
+            bw.write(String.format("%s\n", output));
+            bw.flush();
         }
+        bw.close();
+        br.close();
     }
 
 }

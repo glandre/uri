@@ -18,6 +18,9 @@
 package problem1013;
 
 import base.TestBase;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -36,10 +39,14 @@ public class MainTest extends TestBase {
      */
     @Test
     public void testMain1() {
-        setSystemIn("7 14 106");
-        String[] args = null;
-        Main.main(args);
-        assertEquals("106 eh o maior\n", outContent.toString());
+        try {
+            setSystemIn("7 14 106");
+            String[] args = null;
+            Main.main(args);
+            assertEquals("106 eh o maior\n", outContent.toString());
+        } catch (IOException ex) {
+            fail(ex.getMessage());
+        }
     }
     
     /**
@@ -47,10 +54,14 @@ public class MainTest extends TestBase {
      */
     @Test
     public void testMain2() {
-        setSystemIn("217 14 6");
-        String[] args = null;
-        Main.main(args);
-        assertEquals("217 eh o maior\n", outContent.toString());
+        try {
+            setSystemIn("217 14 6");
+            String[] args = null;
+            Main.main(args);
+            assertEquals("217 eh o maior\n", outContent.toString());
+        } catch (IOException ex) {
+            fail(ex.getMessage());
+        }
     }
     
     /**
@@ -58,10 +69,14 @@ public class MainTest extends TestBase {
      */
     @Test
     public void testMainMy1() {
-        setSystemIn("-217 14 6");
-        String[] args = null;
-        Main.main(args);
-        assertEquals("14 eh o maior\n", outContent.toString());
+        try {
+            setSystemIn("-217 14 6");
+            String[] args = null;
+            Main.main(args);
+            assertEquals("14 eh o maior\n", outContent.toString());
+        } catch (IOException ex) {
+            fail(ex.getMessage());
+        }
     }
     
     /**
@@ -69,10 +84,14 @@ public class MainTest extends TestBase {
      */
     @Test
     public void testMainMy2() {
-        setSystemIn("-217 -14 -6");
-        String[] args = null;
-        Main.main(args);
-        assertEquals("-6 eh o maior\n", outContent.toString());
+        try {
+            setSystemIn("-217 -14 -6");
+            String[] args = null;
+            Main.main(args);
+            assertEquals("-6 eh o maior\n", outContent.toString());
+        } catch (IOException ex) {
+            fail(ex.getMessage());
+        }
     }
     
     /**
@@ -80,10 +99,14 @@ public class MainTest extends TestBase {
      */
     @Test
     public void testMainMy3() {
-        setSystemIn("-217 -14 -6");
-        String[] args = null;
-        Main.main(args);
-        assertEquals("-6 eh o maior\n", outContent.toString());
+        try {
+            setSystemIn("-217 -14 -6");
+            String[] args = null;
+            Main.main(args);
+            assertEquals("-6 eh o maior\n", outContent.toString());
+        } catch (IOException ex) {
+            fail(ex.getMessage());
+        }
     }
     
     /**
@@ -91,10 +114,14 @@ public class MainTest extends TestBase {
      */
     @Test
     public void testMainMy4() {
-        setSystemIn("0 0 0");
-        String[] args = null;
-        Main.main(args);
-        assertEquals("0 eh o maior\n", outContent.toString());
+        try {
+            setSystemIn("0 0 0");
+            String[] args = null;
+            Main.main(args);
+            assertEquals("0 eh o maior\n", outContent.toString());
+        } catch (IOException ex) {
+            fail(ex.getMessage());
+        }
     }
     
 }

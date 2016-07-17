@@ -18,6 +18,9 @@
 package problem1005;
 
 import base.TestBase;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -32,9 +35,13 @@ public class MainTest extends TestBase {
      */
     @Test
     public void testMain_sample1() {
-        setSystemIn("5,0\n7,1\n");
-        Main.main(null);
-        assertEquals("MEDIA = 6,43182\n", outContent.toString());
+        try {
+            setSystemIn("5.0\n7.1\n");
+            Main.main(null);
+            assertEquals("MEDIA = 6,43182\n", outContent.toString());
+        } catch (IOException ex) {
+            fail(ex.getMessage());
+        }
     }
 
     /**
@@ -42,9 +49,13 @@ public class MainTest extends TestBase {
      */
     @Test
     public void testMain_sample2() {
-        setSystemIn("0,0\n7,1\n");
-        Main.main(null);
-        assertEquals("MEDIA = 4,84091\n", outContent.toString());
+        try {
+            setSystemIn("0.0\n7.1\n");
+            Main.main(null);
+            assertEquals("MEDIA = 4,84091\n", outContent.toString());
+        } catch (IOException ex) {
+            fail(ex.getMessage());
+        }
     }
 
     /**
@@ -52,9 +63,13 @@ public class MainTest extends TestBase {
      */
     @Test
     public void testMain_sample3() {
-        setSystemIn("10,0\n10,0\n");
-        Main.main(null);
-        assertEquals("MEDIA = 10,00000\n", outContent.toString());
+        try {
+            setSystemIn("10.0\n10.0\n");
+            Main.main(null);
+            assertEquals("MEDIA = 10,00000\n", outContent.toString());
+        } catch (IOException ex) {
+            fail(ex.getMessage());
+        }
     }
     
 }

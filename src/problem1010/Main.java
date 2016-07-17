@@ -18,7 +18,11 @@
 
 package problem1010;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 
 /**
  * @author Geraldo B. Landre <geraldo.landre@gmail.com>
@@ -28,20 +32,27 @@ public class Main {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         
-        int code1 = scanner.nextInt();
-        int qtty1 = scanner.nextInt();
-        double pricePerUnit1 = scanner.nextDouble();
+        String line = br.readLine();
+        String[] input = line.split("\\s+");
+        int code1 = Integer.parseInt(input[0]);
+        int qtty1 = Integer.parseInt(input[1]);
+        double pricePerUnit1 = Double.parseDouble(input[2]);
         
-        int code2 = scanner.nextInt();
-        int qtty2 = scanner.nextInt();
-        double pricePerUnit2 = scanner.nextDouble();
+        line = br.readLine();
+        input = line.split("\\s+");
+        int code2 = Integer.parseInt(input[0]);
+        int qtty2 = Integer.parseInt(input[1]);
+        double pricePerUnit2 = Double.parseDouble(input[2]);
         
         double total = qtty1 * pricePerUnit1 + qtty2 * pricePerUnit2;
         
-        System.out.printf("VALOR A PAGAR: R$ %.2f\n", total);
+        bw.write(String.format("VALOR A PAGAR: R$ %.2f\n", total));
+        bw.close();
+        br.close();
     }
 
 }

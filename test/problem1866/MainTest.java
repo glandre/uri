@@ -18,10 +18,7 @@
 package problem1866;
 
 import base.TestBase;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
+import java.io.IOException;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -36,10 +33,14 @@ public class MainTest extends TestBase {
      */
     @Test
     public void testMain() {
-        setSystemIn("3\n11\n7\n18\n");
-        String[] args = null;
-        Main.main(args);
-        assertEquals("1\n1\n0\n", outContent.toString());
+        try {
+            setSystemIn("3\n11\n7\n18\n");
+            String[] args = null;
+            Main.main(args);
+            assertEquals("1\n1\n0\n", outContent.toString());
+        } catch (IOException ex) {
+            fail(ex.getMessage());
+        }
     }
     
 }

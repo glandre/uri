@@ -18,6 +18,7 @@
 package problem1006;
 
 import base.TestBase;
+import java.io.IOException;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -32,10 +33,14 @@ public class MainTest extends TestBase {
      */
     @Test
     public void testMain_sample1() {
-        setSystemIn("5,0\n6,0\n7,0\n");
-        String[] args = null;
-        Main.main(args);
-        assertEquals("MEDIA = 6,3\n", outContent.toString());
+        try {
+            setSystemIn("5.0\n6.0\n7.0\n");
+            String[] args = null;
+            Main.main(args);
+            assertEquals("MEDIA = 6,3\n", outContent.toString());
+        } catch (IOException ex) {
+            fail(ex.getMessage());
+        }
     }
 
     /**
@@ -43,10 +48,14 @@ public class MainTest extends TestBase {
      */
     @Test
     public void testMain_sample2() {
-        setSystemIn("5,0\n10,0\n10,0\n");
-        String[] args = null;
-        Main.main(args);
-        assertEquals("MEDIA = 9,0\n", outContent.toString());
+        try {
+            setSystemIn("5.0\n10.0\n10.0\n");
+            String[] args = null;
+            Main.main(args);
+            assertEquals("MEDIA = 9,0\n", outContent.toString());
+        } catch (IOException ex) {
+            fail(ex.getMessage());
+        }
     }
 
     /**
@@ -54,10 +63,14 @@ public class MainTest extends TestBase {
      */
     @Test
     public void testMain_sample3() {
-        setSystemIn("10,0\n10,0\n5,0\n");
-        String[] args = null;
-        Main.main(args);
-        assertEquals("MEDIA = 7,5\n", outContent.toString());
+        try {
+            setSystemIn("10.0\n10.0\n5.0\n");
+            String[] args = null;
+            Main.main(args);
+            assertEquals("MEDIA = 7,5\n", outContent.toString());
+        } catch (IOException ex) {
+            fail(ex.getMessage());
+        }
     }
     
 }

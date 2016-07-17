@@ -18,7 +18,11 @@
 
 package problem1018;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 
 /**
  * @author Geraldo B. Landre <geraldo.landre@gmail.com>
@@ -28,9 +32,10 @@ public class Main {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int value = scanner.nextInt();
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        int value = Integer.parseInt(br.readLine());
         int length = 7;
         int[] bancknotes = {100, 50, 20, 10, 5, 2, 1};
         
@@ -38,10 +43,12 @@ public class Main {
         division.divide(value);
         int[] wallet = division.getDivided();
         
-        System.out.printf("%d\n", value);
+        bw.write(String.format("%d\n", value));
         for(int cell = 0; cell < length; cell++) {
-            System.out.printf("%d nota(s) de R$ %d,00\n", wallet[cell], bancknotes[cell]);
+            bw.write(String.format("%d nota(s) de R$ %d,00\n", wallet[cell], bancknotes[cell]));
         }
+        bw.close();
+        br.close();
     }
 
 }

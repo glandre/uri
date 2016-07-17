@@ -18,6 +18,9 @@
 package problem1015;
 
 import base.TestBase;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -32,10 +35,14 @@ public class MainTest extends TestBase {
      */
     @Test
     public void testMain() {
-        setSystemIn("1,0 7,0\n5,0 9,0\n");
-        String[] args = null;
-        Main.main(args);
-        assertEquals("4,4721\n", outContent.toString());
+        try {
+            setSystemIn("1.0 7.0\n5.0 9.0\n");
+            String[] args = null;
+            Main.main(args);
+            assertEquals("4,4721\n", outContent.toString());
+        } catch (IOException ex) {
+            fail(ex.getMessage());
+        }
     }
 
     /**
@@ -43,10 +50,14 @@ public class MainTest extends TestBase {
      */
     @Test
     public void testMain_1() {
-        setSystemIn("5,0 9,0\n1,0 7,0\n");
-        String[] args = null;
-        Main.main(args);
-        assertEquals("4,4721\n", outContent.toString());
+        try {
+            setSystemIn("5.0 9.0\n1.0 7.0\n");
+            String[] args = null;
+            Main.main(args);
+            assertEquals("4,4721\n", outContent.toString());
+        } catch (IOException ex) {
+            fail(ex.getMessage());
+        }
     }
 
     /**
@@ -54,10 +65,14 @@ public class MainTest extends TestBase {
      */
     @Test
     public void testMain2() {
-        setSystemIn("-2,5 0,4\n12,1 7,3\n");
-        String[] args = null;
-        Main.main(args);
-        assertEquals("16,1484\n", outContent.toString());
+        try {
+            setSystemIn("-2.5 0.4\n12.1 7.3\n");
+            String[] args = null;
+            Main.main(args);
+            assertEquals("16,1484\n", outContent.toString());
+        } catch (IOException ex) {
+            fail(ex.getMessage());
+        }
     }
 
     /**
@@ -65,10 +80,14 @@ public class MainTest extends TestBase {
      */
     @Test
     public void testMain2_1() {
-        setSystemIn("12,1 7,3\n-2,5 0,4\n");
-        String[] args = null;
-        Main.main(args);
-        assertEquals("16,1484\n", outContent.toString());
+        try {
+            setSystemIn("12.1 7.3\n-2.5 0.4\n");
+            String[] args = null;
+            Main.main(args);
+            assertEquals("16,1484\n", outContent.toString());
+        } catch (IOException ex) {
+            fail(ex.getMessage());
+        }
     }
 
     /**
@@ -76,10 +95,14 @@ public class MainTest extends TestBase {
      */
     @Test
     public void testMain3() {
-        setSystemIn("2,5 -0,4\n-12,2 7,0\n");
-        String[] args = null;
-        Main.main(args);
-        assertEquals("16,4575\n", outContent.toString());
+        try {
+            setSystemIn("2.5 -0.4\n-12.2 7.0\n");
+            String[] args = null;
+            Main.main(args);
+            assertEquals("16,4575\n", outContent.toString());
+        } catch (IOException ex) {
+            fail(ex.getMessage());
+        }
     }
 
     /**
@@ -87,10 +110,14 @@ public class MainTest extends TestBase {
      */
     @Test
     public void testMain3_1() {
-        setSystemIn("-12,2 7,0\n2,5 -0,4\n");
-        String[] args = null;
-        Main.main(args);
-        assertEquals("16,4575\n", outContent.toString());
+        try {
+            setSystemIn("-12.2 7.0\n2.5 -0.4\n");
+            String[] args = null;
+            Main.main(args);
+            assertEquals("16,4575\n", outContent.toString());
+        } catch (IOException ex) {
+            fail(ex.getMessage());
+        }
     }
     
 }

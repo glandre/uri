@@ -18,7 +18,11 @@
 
 package problem1020;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 
 /**
  * @author Geraldo B. Landre <geraldo.landre@gmail.com>
@@ -28,15 +32,18 @@ public class Main {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         
-        int days = scanner.nextInt();
+        int days = Integer.parseInt(br.readLine());
         int[] dividers = {365, 30};
         DivisionArray array = new DivisionArray(dividers);
         array.divide(days);
         int[] divided = array.getDivided();
-        System.out.printf("%d ano(s)\n%d mes(es)\n%d dia(s)\n", divided[0], divided[1], array.getRest());
+        bw.write(String.format("%d ano(s)\n%d mes(es)\n%d dia(s)\n", divided[0], divided[1], array.getRest()));
+        bw.close();
+        br.close();
     }
 
 }

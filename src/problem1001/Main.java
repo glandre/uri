@@ -17,7 +17,11 @@
  */
 package problem1001;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 
 /**
  * Problem 1001.
@@ -28,13 +32,18 @@ public class Main {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
-        int A = scanner.nextInt();
-        int B = scanner.nextInt();
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        
+        int A = Integer.parseInt(br.readLine());
+        int B = Integer.parseInt(br.readLine());
         int X = A + B;
-        System.out.println("X = " + X);
+        
+        bw.write("X = " + X + "\n");
+        bw.flush();
+        bw.close();
+        br.close();
     }
     
 }

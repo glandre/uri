@@ -18,6 +18,9 @@
 package problem1018;
 
 import base.TestBase;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -32,10 +35,11 @@ public class MainTest extends TestBase {
      */
     @Test
     public void testMain() {
-        setSystemIn("576\n");
-        String[] args = null;
-        Main.main(args);
-        assertEquals("576\n" +
+        try {
+            setSystemIn("576\n");
+            String[] args = null;
+            Main.main(args);
+            assertEquals("576\n" +
                     "5 nota(s) de R$ 100,00\n" +
                     "1 nota(s) de R$ 50,00\n" +
                     "1 nota(s) de R$ 20,00\n" +
@@ -43,6 +47,9 @@ public class MainTest extends TestBase {
                     "1 nota(s) de R$ 5,00\n" +
                     "0 nota(s) de R$ 2,00\n" +
                     "1 nota(s) de R$ 1,00\n", outContent.toString());
+        } catch (IOException ex) {
+            fail(ex.getMessage());
+        }
     }
 
     /**
@@ -50,10 +57,11 @@ public class MainTest extends TestBase {
      */
     @Test
     public void testMain2() {
-        setSystemIn("11257\n");
-        String[] args = null;
-        Main.main(args);
-        assertEquals("11257\n" +
+        try {
+            setSystemIn("11257\n");
+            String[] args = null;
+            Main.main(args);
+            assertEquals("11257\n" +
                     "112 nota(s) de R$ 100,00\n" +
                     "1 nota(s) de R$ 50,00\n" +
                     "0 nota(s) de R$ 20,00\n" +
@@ -61,6 +69,9 @@ public class MainTest extends TestBase {
                     "1 nota(s) de R$ 5,00\n" +
                     "1 nota(s) de R$ 2,00\n" +
                     "0 nota(s) de R$ 1,00\n", outContent.toString());
+        } catch (IOException ex) {
+            fail(ex.getMessage());
+        }
     }
 
     /**
@@ -68,10 +79,11 @@ public class MainTest extends TestBase {
      */
     @Test
     public void testMain3() {
-        setSystemIn("503\n");
-        String[] args = null;
-        Main.main(args);
-        assertEquals("503\n" +
+        try {
+            setSystemIn("503\n");
+            String[] args = null;
+            Main.main(args);
+            assertEquals("503\n" +
                     "5 nota(s) de R$ 100,00\n" +
                     "0 nota(s) de R$ 50,00\n" +
                     "0 nota(s) de R$ 20,00\n" +
@@ -79,6 +91,9 @@ public class MainTest extends TestBase {
                     "0 nota(s) de R$ 5,00\n" +
                     "1 nota(s) de R$ 2,00\n" +
                     "1 nota(s) de R$ 1,00\n", outContent.toString());
+        } catch (IOException ex) {
+            fail(ex.getMessage());
+        }
     }
     
 }

@@ -18,7 +18,11 @@
 package problem1002;
 
 import base.TestBase;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 import org.junit.Test;
 
 /**
@@ -32,9 +36,13 @@ public class MainTest extends TestBase {
      */
     @Test
     public void testMain_sample1() {
-        setSystemIn("2,00");
-        Main.main(null);
-        assertEquals("A=12,5664\n", outContent.toString());
+        try {
+            setSystemIn("2.00");
+            Main.main(null);
+            assertEquals("A=12,5664\n", outContent.toString());
+        } catch (IOException ex) {
+            fail(ex.getMessage());
+        }
     }
 
     /**
@@ -42,9 +50,13 @@ public class MainTest extends TestBase {
      */
     @Test
     public void testMain_sample2() {
-        setSystemIn("100,64");
-        Main.main(null);
-        assertEquals("A=31819,3103\n", outContent.toString());
+        try {
+            setSystemIn("100.64");
+            Main.main(null);
+            assertEquals("A=31819,3103\n", outContent.toString());
+        } catch (IOException ex) {
+            fail(ex.getMessage());
+        }
     }
 
     /**
@@ -52,9 +64,13 @@ public class MainTest extends TestBase {
      */
     @Test
     public void testMain_sample3() {
-        setSystemIn("150,00");
-        Main.main(null);
-        assertEquals("A=70685,7750\n", outContent.toString());
+        try {
+            setSystemIn("150.00");
+            Main.main(null);
+            assertEquals("A=70685,7750\n", outContent.toString());
+        } catch (IOException ex) {
+            fail(ex.getMessage());
+        }
     }
     
 }

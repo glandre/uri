@@ -18,6 +18,7 @@
 package problem1009;
 
 import base.TestBase;
+import java.io.IOException;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -32,13 +33,17 @@ public class MainTest extends TestBase {
      */
     @Test
     public void testMain_sample1() {
-        setSystemIn("JOAO\n500,00\n1230,30\n");
-        String[] args = null;
-        Main.main(args);
-        // according to URI:
-        // assertEquals("TOTAL = R$ 684,54\n", outContent.toString());
-        // according to JUnit:
-        assertEquals("TOTAL = R$ 684,55\n", outContent.toString());
+        try {
+            setSystemIn("JOAO\n500.00\n1230.30\n");
+            String[] args = null;
+            Main.main(args);
+            // according to URI:
+            // assertEquals("TOTAL = R$ 684,54\n", outContent.toString());
+            // according to JUnit:
+            assertEquals("TOTAL = R$ 684,55\n", outContent.toString());
+        } catch (IOException ex) {
+            fail(ex.getMessage());
+        }
     }
 
     /**
@@ -46,10 +51,14 @@ public class MainTest extends TestBase {
      */
     @Test
     public void testMain_sample2() {
-        setSystemIn("PEDRO\n700,00\n00,0\n");
-        String[] args = null;
-        Main.main(args);
-        assertEquals("TOTAL = R$ 700,00\n", outContent.toString());
+        try {
+            setSystemIn("PEDRO\n700.00\n00.0\n");
+            String[] args = null;
+            Main.main(args);
+            assertEquals("TOTAL = R$ 700,00\n", outContent.toString());
+        } catch (IOException ex) {
+            fail(ex.getMessage());
+        }
     }
 
     /**
@@ -57,10 +66,14 @@ public class MainTest extends TestBase {
      */
     @Test
     public void testMain_sample3() {
-        setSystemIn("MANGOJATA\n1700,00\n1230,50\n");
-        String[] args = null;
-        Main.main(args);
-        assertEquals("TOTAL = R$ 1884,58\n", outContent.toString());
+        try {
+            setSystemIn("MANGOJATA\n1700.00\n1230.50\n");
+            String[] args = null;
+            Main.main(args);
+            assertEquals("TOTAL = R$ 1884,58\n", outContent.toString());
+        } catch (IOException ex) {
+            fail(ex.getMessage());
+        }
     }
     
 }

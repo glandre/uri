@@ -18,6 +18,7 @@
 package problem1019;
 
 import base.TestBase;
+import java.io.IOException;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -32,10 +33,14 @@ public class MainTest extends TestBase {
      */
     @Test
     public void testMain() {
-        setSystemIn("556\n");
-        String[] args = null;
-        Main.main(args);
-        assertEquals("0:9:16\n", outContent.toString());
+        try {
+            setSystemIn("556\n");
+            String[] args = null;
+            Main.main(args);
+            assertEquals("0:9:16\n", outContent.toString());
+        } catch (IOException ex) {
+            fail(ex.getMessage());
+        }
     }
 
     /**
@@ -43,10 +48,14 @@ public class MainTest extends TestBase {
      */
     @Test
     public void testMain2() {
-        setSystemIn("1\n");
-        String[] args = null;
-        Main.main(args);
-        assertEquals("0:0:1\n", outContent.toString());
+        try {
+            setSystemIn("1\n");
+            String[] args = null;
+            Main.main(args);
+            assertEquals("0:0:1\n", outContent.toString());
+        } catch (IOException ex) {
+            fail(ex.getMessage());
+        }
     }
 
     /**
@@ -54,10 +63,14 @@ public class MainTest extends TestBase {
      */
     @Test
     public void testMain3() {
-        setSystemIn("140153\n");
-        String[] args = null;
-        Main.main(args);
-        assertEquals("38:55:53\n", outContent.toString());
+        try {
+            setSystemIn("140153\n");
+            String[] args = null;
+            Main.main(args);
+            assertEquals("38:55:53\n", outContent.toString());
+        } catch (IOException ex) {
+            fail(ex.getMessage());
+        }
     }
     
 }

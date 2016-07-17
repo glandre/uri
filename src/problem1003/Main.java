@@ -18,7 +18,11 @@
 
 package problem1003;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 
 /**
  * Problem 1003.
@@ -29,14 +33,18 @@ public class Main {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         
-        int a = scanner.nextInt();
-        int b = scanner.nextInt();
+        int a = Integer.parseInt(br.readLine());
+        int b = Integer.parseInt(br.readLine());
         int soma = a + b;
         
-        System.out.printf("SOMA = %d\n", soma);
+        bw.write(String.format("SOMA = %d\n", soma));
+        bw.flush();
+        bw.close();
+        br.close();
     }
 
 }

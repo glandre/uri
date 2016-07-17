@@ -18,10 +18,7 @@
 package problem1011;
 
 import base.TestBase;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
+import java.io.IOException;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -36,10 +33,14 @@ public class MainTest extends TestBase {
      */
     @Test
     public void testMain_sample1() {
-        setSystemIn("3");
-        String[] args = null;
-        Main.main(args);
-        assertEquals("VOLUME = 113,097\n", outContent.toString());
+        try {
+            setSystemIn("3");
+            String[] args = null;
+            Main.main(args);
+            assertEquals("VOLUME = 113,097\n", outContent.toString());
+        } catch (IOException ex) {
+            fail(ex.getMessage());
+        }
     }
 
     /**
@@ -47,10 +48,14 @@ public class MainTest extends TestBase {
      */
     @Test
     public void testMain_sample2() {
-        setSystemIn("15");
-        String[] args = null;
-        Main.main(args);
-        assertEquals("VOLUME = 14137,155\n", outContent.toString());
+        try {
+            setSystemIn("15");
+            String[] args = null;
+            Main.main(args);
+            assertEquals("VOLUME = 14137,155\n", outContent.toString());
+        } catch (IOException ex) {
+            fail(ex.getMessage());
+        }
     }
 
     /**
@@ -58,10 +63,14 @@ public class MainTest extends TestBase {
      */
     @Test
     public void testMain_sample3() {
-        setSystemIn("1523");
-        String[] args = null;
-        Main.main(args);
-        assertEquals("VOLUME = 14797486501,627\n", outContent.toString());
+        try {
+            setSystemIn("1523");
+            String[] args = null;
+            Main.main(args);
+            assertEquals("VOLUME = 14797486501,627\n", outContent.toString());
+        } catch (IOException ex) {
+            fail(ex.getMessage());
+        }
     }
     
 }

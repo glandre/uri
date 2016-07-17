@@ -18,7 +18,11 @@
 
 package problem1013;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 
 /**
  * @author Geraldo B. Landre <geraldo.landre@gmail.com>
@@ -28,14 +32,19 @@ public class Main {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         
-        int a = scanner.nextInt();
-        int b = scanner.nextInt();
-        int c = scanner.nextInt();
+        String line = br.readLine();
+        String[] input = line.split("\\s+");
+        int a = Integer.parseInt(input[0]);
+        int b = Integer.parseInt(input[1]);
+        int c = Integer.parseInt(input[2]);
         
-        System.out.printf("%d eh o maior\n", greater(greater(a,b),c));
+        bw.write(String.format("%d eh o maior\n", greater(greater(a,b),c)));
+        bw.close();
+        br.close();
     }
     
     private static int greater(int a, int b) {

@@ -18,6 +18,11 @@
 
 package problem1019;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.Scanner;
 
 /**
@@ -28,12 +33,14 @@ public class Main {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         
-        Time time = new Time(scanner.nextInt());
-        System.out.printf("%s\n", time);
-        
+        Time time = new Time(Integer.parseInt(br.readLine()));
+        bw.write(String.format("%s\n", time));
+        bw.close();
+        br.close();
     }
 
 }

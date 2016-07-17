@@ -18,6 +18,9 @@
 package problem1008;
 
 import base.TestBase;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -36,10 +39,14 @@ public class MainTest extends TestBase {
      */
     @Test
     public void testMain_sample1() {
-        setSystemIn("25\n100\n5,50\n");
-        String[] args = null;
-        Main.main(args);
-        assertEquals("NUMBER = 25\nSALARY = U$ 550,00\n", outContent.toString());
+        try {
+            setSystemIn("25\n100\n5.50\n");
+            String[] args = null;
+            Main.main(args);
+            assertEquals("NUMBER = 25\nSALARY = U$ 550,00\n", outContent.toString());
+        } catch (IOException ex) {
+            fail(ex.getMessage());
+        }
     }
 
     /**
@@ -47,10 +54,14 @@ public class MainTest extends TestBase {
      */
     @Test
     public void testMain_sample2() {
-        setSystemIn("1\n200\n20,50\n");
-        String[] args = null;
-        Main.main(args);
-        assertEquals("NUMBER = 1\nSALARY = U$ 4100,00\n", outContent.toString());
+        try {
+            setSystemIn("1\n200\n20.50\n");
+            String[] args = null;
+            Main.main(args);
+            assertEquals("NUMBER = 1\nSALARY = U$ 4100,00\n", outContent.toString());
+        } catch (IOException ex) {
+            fail(ex.getMessage());
+        }
     }
 
     /**
@@ -58,10 +69,14 @@ public class MainTest extends TestBase {
      */
     @Test
     public void testMain_sample3() {
-        setSystemIn("6\n145\n15,55\n");
-        String[] args = null;
-        Main.main(args);
-        assertEquals("NUMBER = 6\nSALARY = U$ 2254,75\n", outContent.toString());
+        try {
+            setSystemIn("6\n145\n15.55\n");
+            String[] args = null;
+            Main.main(args);
+            assertEquals("NUMBER = 6\nSALARY = U$ 2254,75\n", outContent.toString());
+        } catch (IOException ex) {
+            fail(ex.getMessage());
+        }
     }
     
 }

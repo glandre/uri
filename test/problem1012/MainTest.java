@@ -18,10 +18,7 @@
 package problem1012;
 
 import base.TestBase;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
+import java.io.IOException;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -35,32 +32,40 @@ public class MainTest extends TestBase {
      */
     @Test
     public void testMain1() {
-        setSystemIn("3,0 4,0 5,2");
-        String[] args = null;
-        Main.main(args);
-        String expectedResult = "TRIANGULO: 7,800\n" +
-                                "CIRCULO: 84,949\n" +
-                                "TRAPEZIO: 18,200\n" +
-                                "QUADRADO: 16,000\n" +
-                                "RETANGULO: 12,000\n";
-        
-        assertEquals(expectedResult, outContent.toString());
+        try {
+            setSystemIn("3.0 4.0 5.2");
+            String[] args = null;
+            Main.main(args);
+            String expectedResult = "TRIANGULO: 7,800\n" +
+                    "CIRCULO: 84,949\n" +
+                    "TRAPEZIO: 18,200\n" +
+                    "QUADRADO: 16,000\n" +
+                    "RETANGULO: 12,000\n";
+            
+            assertEquals(expectedResult, outContent.toString());
+        } catch (IOException ex) {
+            fail(ex.getMessage());
+        }
     }
     /**
      * Test of main method, of class Main.
      */
     @Test
     public void testMain2() {
-        setSystemIn("12,7 10,4 15,2");
-        String[] args = null;
-        Main.main(args);
-        String expectedResult = "TRIANGULO: 96,520\n" +
-                                "CIRCULO: 725,833\n" +
-                                "TRAPEZIO: 175,560\n" +
-                                "QUADRADO: 108,160\n" +
-                                "RETANGULO: 132,080\n";
-        
-        assertEquals(expectedResult, outContent.toString());
+        try {
+            setSystemIn("12.7 10.4 15.2");
+            String[] args = null;
+            Main.main(args);
+            String expectedResult = "TRIANGULO: 96,520\n" +
+                    "CIRCULO: 725,833\n" +
+                    "TRAPEZIO: 175,560\n" +
+                    "QUADRADO: 108,160\n" +
+                    "RETANGULO: 132,080\n";
+            
+            assertEquals(expectedResult, outContent.toString());
+        } catch (IOException ex) {
+            fail(ex.getMessage());
+        }
     }
     
 }

@@ -18,6 +18,11 @@
 
 package problem1017;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.Scanner;
 
 /**
@@ -28,13 +33,16 @@ public class Main {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         
-        int hours = scanner.nextInt();
-        int speed = scanner.nextInt();
+        int hours = Integer.parseInt(br.readLine());
+        int speed = Integer.parseInt(br.readLine());
         
-        System.out.printf("%.3f\n", hours * speed / CONSUMPTION);
+        bw.write(String.format("%.3f\n", hours * speed / CONSUMPTION));
+        bw.close();
+        br.close();
     }
 
 }

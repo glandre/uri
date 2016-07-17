@@ -18,10 +18,7 @@
 package problem1010;
 
 import base.TestBase;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
+import java.io.IOException;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -36,10 +33,14 @@ public class MainTest extends TestBase {
      */
     @Test
     public void testMain_sample1() {
-        setSystemIn("12 1 5,30\n16 2 5,10");
-        String[] args = null;
-        Main.main(args);
-        assertEquals("VALOR A PAGAR: R$ 15,50\n", outContent.toString());
+        try {
+            setSystemIn("12 1 5.30\n16 2 5.10");
+            String[] args = null;
+            Main.main(args);
+            assertEquals("VALOR A PAGAR: R$ 15,50\n", outContent.toString());
+        } catch (IOException ex) {
+            fail(ex.getMessage());
+        }
     }
 
     /**
@@ -47,10 +48,14 @@ public class MainTest extends TestBase {
      */
     @Test
     public void testMain_sample2() {
-        setSystemIn("13 2 15,30\n161 4 5,20");
-        String[] args = null;
-        Main.main(args);
-        assertEquals("VALOR A PAGAR: R$ 51,40\n", outContent.toString());
+        try {
+            setSystemIn("13 2 15.30\n161 4 5.20");
+            String[] args = null;
+            Main.main(args);
+            assertEquals("VALOR A PAGAR: R$ 51,40\n", outContent.toString());
+        } catch (IOException ex) {
+            fail(ex.getMessage());
+        }
     }
 
     /**
@@ -58,10 +63,14 @@ public class MainTest extends TestBase {
      */
     @Test
     public void testMain_sample3() {
-        setSystemIn("1 1 15,10\n2 1 15,10");
-        String[] args = null;
-        Main.main(args);
-        assertEquals("VALOR A PAGAR: R$ 30,20\n", outContent.toString());
+        try {
+            setSystemIn("1 1 15.10\n2 1 15.10");
+            String[] args = null;
+            Main.main(args);
+            assertEquals("VALOR A PAGAR: R$ 30,20\n", outContent.toString());
+        } catch (IOException ex) {
+            fail(ex.getMessage());
+        }
     }
     
 }

@@ -18,7 +18,11 @@
 
 package problem1015;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 
 class Point {
 
@@ -44,17 +48,24 @@ public class Main {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        String line = br.readLine();
+        String[] input = line.split("\\s+");
         Point p1 = new Point();
-        p1.x = scanner.nextDouble();
-        p1.y = scanner.nextDouble();
-        Point p2 = new Point();
-        p2.x = scanner.nextDouble();
-        p2.y = scanner.nextDouble();
+        p1.x = Double.parseDouble(input[0]);
+        p1.y = Double.parseDouble(input[1]);
         
-        System.out.printf("%.4f\n", p1.distance(p2));
+        line = br.readLine();
+        input = line.split("\\s+");
+        Point p2 = new Point();
+        p2.x = Double.parseDouble(input[0]);
+        p2.y = Double.parseDouble(input[1]);
+        
+        bw.write(String.format("%.4f\n", p1.distance(p2)));
+        bw.close();
+        br.close();
     }
 
 }

@@ -18,6 +18,7 @@
 package problem1014;
 
 import base.TestBase;
+import java.io.IOException;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -32,10 +33,14 @@ public class MainTest extends TestBase {
      */
     @Test
     public void testMain() {
-        setSystemIn("500\n35,0");
-        String[] args = null;
-        Main.main(args);
-        assertEquals("14,286 km/l\n", outContent.toString());
+        try {
+            setSystemIn("500\n35.0");
+            String[] args = null;
+            Main.main(args);
+            assertEquals("14,286 km/l\n", outContent.toString());
+        } catch (IOException ex) {
+            fail(ex.getMessage());
+        }
     }
 
     /**
@@ -43,10 +48,14 @@ public class MainTest extends TestBase {
      */
     @Test
     public void testMain2() {
-        setSystemIn("2254\n124,4");
-        String[] args = null;
-        Main.main(args);
-        assertEquals("18,119 km/l\n", outContent.toString());
+        try {
+            setSystemIn("2254\n124.4");
+            String[] args = null;
+            Main.main(args);
+            assertEquals("18,119 km/l\n", outContent.toString());
+        } catch (IOException ex) {
+            fail(ex.getMessage());
+        }
     }
 
     /**
@@ -54,10 +63,14 @@ public class MainTest extends TestBase {
      */
     @Test
     public void testMain3() {
-        setSystemIn("4554\n464,6");
-        String[] args = null;
-        Main.main(args);
-        assertEquals("9,802 km/l\n", outContent.toString());
+        try {
+            setSystemIn("4554\n464.6");
+            String[] args = null;
+            Main.main(args);
+            assertEquals("9,802 km/l\n", outContent.toString());
+        } catch (IOException ex) {
+            fail(ex.getMessage());
+        }
     }
 
 }

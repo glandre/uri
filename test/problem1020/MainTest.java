@@ -18,6 +18,9 @@
 package problem1020;
 
 import base.TestBase;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -32,10 +35,14 @@ public class MainTest extends TestBase {
      */
     @Test
     public void testMain() {
-        setSystemIn("400\n");
-        String[] args = null;
-        Main.main(args);
-        assertEquals("1 ano(s)\n1 mes(es)\n5 dia(s)\n", outContent.toString());
+        try {
+            setSystemIn("400\n");
+            String[] args = null;
+            Main.main(args);
+            assertEquals("1 ano(s)\n1 mes(es)\n5 dia(s)\n", outContent.toString());
+        } catch (IOException ex) {
+            fail(ex.getMessage());
+        }
     }
 
     /**
@@ -43,10 +50,14 @@ public class MainTest extends TestBase {
      */
     @Test
     public void testMain2() {
-        setSystemIn("800\n");
-        String[] args = null;
-        Main.main(args);
-        assertEquals("2 ano(s)\n2 mes(es)\n10 dia(s)\n", outContent.toString());
+        try {
+            setSystemIn("800\n");
+            String[] args = null;
+            Main.main(args);
+            assertEquals("2 ano(s)\n2 mes(es)\n10 dia(s)\n", outContent.toString());
+        } catch (IOException ex) {
+            fail(ex.getMessage());
+        }
     }
 
     /**
@@ -54,10 +65,14 @@ public class MainTest extends TestBase {
      */
     @Test
     public void testMain3() {
-        setSystemIn("30\n");
-        String[] args = null;
-        Main.main(args);
-        assertEquals("0 ano(s)\n1 mes(es)\n0 dia(s)\n", outContent.toString());
+        try {
+            setSystemIn("30\n");
+            String[] args = null;
+            Main.main(args);
+            assertEquals("0 ano(s)\n1 mes(es)\n0 dia(s)\n", outContent.toString());
+        } catch (IOException ex) {
+            fail(ex.getMessage());
+        }
     }
     
 }

@@ -17,7 +17,11 @@
  */
 package problem1038;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.Scanner;
 
 /**
@@ -39,15 +43,19 @@ public class Main {
      *
      */
     public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        Scanner scanner = new Scanner(System.in);
-
-        int code = scanner.nextInt();
-        int amount = scanner.nextInt();
+        String line = br.readLine();
+        String[] input = line.split("\\s+");
+        int code = Integer.parseInt(input[0]);
+        int amount = Integer.parseInt(input[1]);
 
         double[] table = {4, 4.5, 5, 2, 1.5};
 
-        System.out.printf("Total: R$ %.2f\n", table[code - 1] * amount);
+        bw.write(String.format("Total: R$ %.2f\n", table[code - 1] * amount));
+        bw.close();
+        br.close();
     }
 
 }

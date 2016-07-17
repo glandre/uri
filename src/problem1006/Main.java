@@ -18,7 +18,11 @@
 
 package problem1006;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 
 /**
  * @author Geraldo B. Landre <geraldo.landre@gmail.com>
@@ -28,15 +32,18 @@ public class Main {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         
-        double a = scanner.nextDouble();
-        double b = scanner.nextDouble();
-        double c = scanner.nextDouble();
+        double a = Double.parseDouble(br.readLine());
+        double b = Double.parseDouble(br.readLine());
+        double c = Double.parseDouble(br.readLine());
         double average = (2 * a + 3 * b + 5 * c) / 10;
         
-        System.out.printf("MEDIA = %.1f\n", average);
+        bw.write(String.format("MEDIA = %.1f\n", average));
+        bw.close();
+        br.close();
     }
 
 }
