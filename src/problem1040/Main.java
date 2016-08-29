@@ -15,7 +15,8 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
-package problem1038;
+
+package problem1040;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -24,37 +25,49 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
 /**
- * Problem 1038.
  * @author Geraldo B. Landre <geraldo.landre@gmail.com>
  */
 public class Main {
 
     /**
-     * Problem 1038. Using the following table, write a program that reads a
-     * code and the amount of an item. After, print the value to pay. This is a
-     * very simple program with the only intention of practice of selection
-     * commands. CODE - SPECIFICATION - PRICE 1 - Cachorro Quente - R$ 4.00 2 -
-     * X-Salada - R$ 4.50 3 - X-Bacon - R$ 5.00 4 - Torrada Simples - R$ 2.00 5
-     * - Refrigerante - R$ 1.50
-     *
      * @param args the command line arguments
-     * @throws java.io.IOException
-     *
      */
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-
+        
         String line = br.readLine();
         String[] input = line.split("\\s+");
-        int code = Integer.parseInt(input[0]);
-        int amount = Integer.parseInt(input[1]);
-
-        double[] table = {4, 4.5, 5, 2, 1.5};
-
-        bw.write(String.format("Total: R$ %.2f\n", table[code - 1] * amount));
+        
+        float n1 = Float.parseFloat(input[0]);
+        float n2 = Float.parseFloat(input[1]);
+        float n3 = Float.parseFloat(input[2]);
+        float n4 = Float.parseFloat(input[3]);
+        float media = (n1 * 2 + n2 * 3 + n3 * 4 + n4 * 1)/10;
+        
+        bw.write(String.format("Media: %.1f\n", media));
+        if(media >= 7.0) {
+            bw.write(String.format("Aluno aprovado.\n"));
+        }
+        else if(media >= 5.0) {
+            bw.write(String.format("Aluno em exame.\n"));
+            line = br.readLine();
+            double exame = Double.parseDouble(line);
+            bw.write(String.format("Nota do exame: %.1f\n", exame));
+            double mediaComExame = (media + exame)/2;
+            if(mediaComExame >= 5.0) {
+                bw.write(String.format("Aluno aprovado.\n"));
+            }
+            else {
+                bw.write(String.format("Aluno reprovado\n"));
+            }
+            bw.write(String.format("Media final: %.1f\n", mediaComExame));
+        }
+        else {
+            bw.write(String.format("Aluno reprovado.\n"));
+        }
+        
         bw.close();
         br.close();
     }
-
 }
